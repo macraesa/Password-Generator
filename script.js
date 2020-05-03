@@ -11,11 +11,18 @@ function generatePassword() {
   
   
   // variables that prompt a password length and confirm characters
-  var passwordLength = parseInt(prompt("Length?"));
-  var wantsSpecials = confirm("Specials?");
-  var wantsLowers = confirm("Lowers?");
-  var wantsUppers = confirm("Uppers?");
-  var wantsNumbers = confirm("Numbers?")
+  var passwordLength = parseInt(prompt("What length would you like your password?"));
+    if (passwordLength < 8 || passwordLength > 128) {
+        alert("Password length must be between 8 and 128 characters")
+    }
+  var wantsSpecials = confirm("Would you like to use special characters?");
+  var wantsLowers = confirm("Would you like to use lowercase letters?");
+  var wantsUppers = confirm("Would you like to use uppercase letters?");
+  var wantsNumbers = confirm("Would you like to use numbers?")
+
+  if (wantsSpecials != true && wantsLowers != true && wantsUppers != true && wantsNumbers != true) {
+      alert("Please select at least one character for you password")
+  }
 
   console.log(possibles);
 
